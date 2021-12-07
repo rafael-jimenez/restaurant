@@ -7,5 +7,5 @@ import java.util.Optional;
 public interface SurveyService {
     Optional<Survey> getSurvey(Long id);
 
-    Optional<Object> createSurvey(Survey survey);
+    Optional<Survey> createSurvey(Survey survey);
 }

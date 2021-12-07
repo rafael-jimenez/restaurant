@@ -22,8 +22,8 @@ public class SurveyServiceImpl implements SurveyService {
     }
 
     @Override
-    public Optional<Object> createSurvey(Survey survey) {
+    public Optional<Survey> createSurvey(Survey survey) {
+        return Optional.of(surveyRepository.save(survey));
 
-        return Optional.empty();
     }
 }

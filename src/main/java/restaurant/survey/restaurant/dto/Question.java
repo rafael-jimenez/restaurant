@@ -1,6 +1,8 @@
 package restaurant.survey.restaurant.dto;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -21,7 +23,11 @@ public class Question {
 
     private String question;
 
-    @ManyToOne(targetEntity = Survey.class, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToOne
+    @JoinColumn(name = "survey_id")
+    @JsonBackReference
+    @JsonIgnore
+
     private Survey survey;
 }
 

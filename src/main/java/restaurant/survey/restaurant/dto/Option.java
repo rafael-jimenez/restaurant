@@ -19,4 +19,12 @@ public class Option {
 
     private  int order;
 
+    @ManyToOne
+    @JoinColumn(name = "survey_id")
+    private Survey survey;
+
+    @ManyToOne
+    @JoinColumn(name = "survey_id_id")
+    private Survey surveyId;
+
 }

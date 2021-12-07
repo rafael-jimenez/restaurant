@@ -1,10 +1,12 @@
 package restaurant.survey.restaurant.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 @Getter
@@ -18,7 +20,10 @@ public class Survey {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String description;
 
-    @OneToMany(targetEntity = Question.class, mappedBy = "survey", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<Question> question;
+    @OneToMany(targetEntity = Question.class, mappedBy = "survey", fetch = FetchType.LAZY)
+    @JsonManagedReference
+    private List<Option> options;
+
 }
